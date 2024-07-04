@@ -1,0 +1,7 @@
+{
+    "files": [
+        "hysteria_ui.py",
+        "form.ui",
+        "ui_form.py"
+    ]
+}

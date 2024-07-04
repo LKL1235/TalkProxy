@@ -1,0 +1,6 @@
+.qtcreator/
+*.pyc
+*.egg-info/
+.ruff_cache/
+__pycache__/
+*.yaml

@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Widget</class>
+ <widget class="QWidget" name="Widget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1140</width>
+    <height>738</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>DashBoard</string>
+  </property>
+  <widget class="QStackedWidget" name="stackedWidget">
+   <property name="geometry">
+    <rect>
+     <x>160</x>
+     <y>10</y>
+     <width>971</width>
+     <height>721</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>0</width>
+     <height>75</height>
+    </size>
+   </property>
+   <widget class="QWidget" name="page_0"/>
+   <widget class="QWidget" name="page_2"/>
+   <widget class="QWidget" name="page_3"/>
+   <widget class="QWidget" name="page_4"/>
+   <widget class="QWidget" name="page_5"/>
+   <widget class="QWidget" name="page_6"/>
+   <widget class="QWidget" name="page_1"/>
+  </widget>
+  <widget class="QWidget" name="verticalLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>10</y>
+     <width>160</width>
+     <height>531</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>0</width>
+     <height>75</height>
+    </size>
+   </property>
+   <layout class="QVBoxLayout" name="sideMenuLayout">
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <item>
+     <widget class="QPushButton" name="proxyButton">
+      <property name="minimumSize">
+       <size>
+        <width>158</width>
+        <height>75</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>代理</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="subscriptionButton">
+      <property name="minimumSize">
+       <size>
+        <width>158</width>
+        <height>75</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>订阅</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="connectionButton">
+      <property name="minimumSize">
+       <size>
+        <width>158</width>
+        <height>75</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>连接</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="ruleButton">
+      <property name="minimumSize">
+       <size>
+        <width>158</width>
+        <height>75</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>规则</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="logButton">
+      <property name="minimumSize">
+       <size>
+        <width>158</width>
+        <height>75</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>日志</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="testButton">
+      <property name="minimumSize">
+       <size>
+        <width>158</width>
+        <height>75</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>测试</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="settingButton">
+      <property name="minimumSize">
+       <size>
+        <width>158</width>
+        <height>75</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>设置</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

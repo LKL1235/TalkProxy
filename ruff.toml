@@ -1,0 +1,48 @@
+
+select = [
+  "E",   # pycodestyle
+  "F",   # pyflakes
+  "UP",  # pyupgrade
+  "ANN", # flake8-annotations
+  "S",   # flake8-bandit
+  "A",   # flake8-builtins
+  "RET", # flake8-return
+  "SIM", # flake8-simplify
+  "ARG", # flake8-unused-arguments
+  "PLE", # Pylint Error
+  "RUF", # Ruff-specific rules
+]
+
+ignore = [
+    "ANN201",
+    "E501",
+    "ANN101",
+]
+
+fixable = ["ALL"]
+unfixable = []
+
+exclude = [
+    ".bzr",
+    ".direnv",
+    ".eggs",
+    ".git",
+    ".git-rewrite",
+    ".hg",
+    ".mypy_cache",
+    ".nox",
+    ".pants.d",
+    ".pytype",
+    ".ruff_cache",
+    ".svn",
+    ".tox",
+    ".venv",
+    "__pypackages__",
+    "_build",
+    "buck-out",
+    "build",
+    "dist",
+    "node_modules",
+    "venv",
+    "ui_form.py"
+]
