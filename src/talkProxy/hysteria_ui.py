@@ -1,8 +1,7 @@
-
 from functools import partial
 from PySide6.QtWidgets import QWidget, QPushButton
 from PySide6.QtGui import QCloseEvent
-from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
+from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,    # noqa: F401
     QMetaObject, QObject, QPoint, QRect,
     QSize, QTime, QUrl, Qt)
 
@@ -33,15 +32,9 @@ class Widget(QWidget):
         self.ui.logButton.clicked.connect(indexChangeFuncList[4])
         self.ui.testButton.clicked.connect(indexChangeFuncList[5])
         self.ui.settingButton.clicked.connect(indexChangeFuncList[6])
-        a = QPushButton(self.ui.page_0)
-        a.setObjectName(u"qqt")
-        a.setGeometry(QRect(310, 230, 80, 23))
-        a.setText(QCoreApplication.translate("Widget", u"PushButton2", None))
         
-        b = QPushButton(self.ui.page_6)
-        b.setObjectName(u"qqt2")
-        b.setGeometry(QRect(310, 230, 80, 23))
-        b.setText(QCoreApplication.translate("Widget", u"PushButton2", None))
+    def setupProxyPage(self):
+        pass
 
     def closeEvent(self, event:QCloseEvent):
         # 重写closeEvent事件处理函数

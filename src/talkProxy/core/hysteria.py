@@ -9,12 +9,6 @@ class Hysteria(threading.Thread):
     _instance = None
     _lock = threading.Lock()
     
-    def __new__(cls, *args, **kwargs) -> 'Hysteria':
-        with cls._lock:
-            if cls._instance is None:
-                cls._instance = super().__new__(cls)
-        return cls._instance
-    
     def __init__(self, cmd:list[str]) -> None:
         super().__init__()
         self.sub_process = None
@@ -56,10 +50,7 @@ class Hysteria(threading.Thread):
         self.stderr_thread.start()
         # 等待外部程序完成
         self.sub_process.wait()
-        
-        # 确保输出线程也完成了
-        self.stdout_thread.join()
-        self.stderr_thread.join()
+        logging.error('外部程序已退出')
 
     def read_output(self, stream:IO[str]):
         while not self._stop_event.is_set():

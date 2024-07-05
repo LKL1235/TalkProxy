@@ -25,7 +25,7 @@ class SettingReader:
             else:
                 return None
 
-        if not isinstance(data, value_type):
+        if not isinstance(data, value_type) and data is not None:
             logging.error("读取配置类型错误")
             return None
         return data

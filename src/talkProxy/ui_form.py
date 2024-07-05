@@ -25,7 +25,7 @@ class Ui_Widget(object):
         Widget.resize(1140, 738)
         self.stackedWidget = QStackedWidget(Widget)
         self.stackedWidget.setObjectName(u"stackedWidget")
-        self.stackedWidget.setGeometry(QRect(160, 10, 971, 721))
+        self.stackedWidget.setGeometry(QRect(160, 50, 971, 681))
         self.stackedWidget.setMinimumSize(QSize(0, 75))
         self.page_0 = QWidget()
         self.page_0.setObjectName(u"page_0")
