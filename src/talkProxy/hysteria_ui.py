@@ -12,29 +12,55 @@ from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,    # no
 from talkProxy.ui_form import Ui_Widget
 from typing import Optional
 
+from .tools.config import GlobalConfig, Subscription
+
 class Widget(QWidget):
     def __init__(self, parent:Optional[any]=None) -> None:
         super().__init__(parent)
         self.ui = Ui_Widget()
         self.ui.setupUi(self)
+        self.globalConfig:GlobalConfig = GlobalConfig.InitConfig()
+        self.subscription = None
+        self.setupSubscriptionList()
         self.setupSideMenu()
+        self.setupProxyPage()
+        self.setupSubscriptionPage()
 
+    def setupSubscriptionList(self):
+        self.subscription_list = self.globalConfig.subscriptionConfig.get_subscription_all()
         
     def setupSideMenu(self):
-        # 向page_0添加一个QPushButton
-        indexChangeFuncList = []
-        for i in range(0,len(self.ui.stackedWidget.children())-1):
-            indexChangeFuncList.append(partial(self.ui.stackedWidget.setCurrentIndex,i))
-        self.ui.proxyButton.clicked.connect(indexChangeFuncList[0])
-        self.ui.subscriptionButton.clicked.connect(indexChangeFuncList[1])
-        self.ui.connectionButton.clicked.connect(indexChangeFuncList[2])
-        self.ui.ruleButton.clicked.connect(indexChangeFuncList[3])
-        self.ui.logButton.clicked.connect(indexChangeFuncList[4])
-        self.ui.testButton.clicked.connect(indexChangeFuncList[5])
-        self.ui.settingButton.clicked.connect(indexChangeFuncList[6])
+        self.ui.proxyButton.clicked.connect(partial(self.ui.stackedWidget.setCurrentIndex,self.ui.stackedWidget.indexOf(self.ui.proxyPage)))
+        self.ui.subscriptionButton.clicked.connect(partial(self.ui.stackedWidget.setCurrentIndex,self.ui.stackedWidget.indexOf(self.ui.subscriptionPage)))
+        self.ui.connectionButton.clicked.connect(partial(self.ui.stackedWidget.setCurrentIndex,self.ui.stackedWidget.indexOf(self.ui.connectionPage)))
+        self.ui.ruleButton.clicked.connect(partial(self.ui.stackedWidget.setCurrentIndex,self.ui.stackedWidget.indexOf(self.ui.rulePage)))
+        self.ui.logButton.clicked.connect(partial(self.ui.stackedWidget.setCurrentIndex,self.ui.stackedWidget.indexOf(self.ui.logPage)))
+        self.ui.testButton.clicked.connect(partial(self.ui.stackedWidget.setCurrentIndex,self.ui.stackedWidget.indexOf(self.ui.testPage)))
+        self.ui.settingButton.clicked.connect(partial(self.ui.stackedWidget.setCurrentIndex,self.ui.stackedWidget.indexOf(self.ui.settingPage)))
         
-    def setupProxyPage(self):
-        pass
+    def setupProxyPage(self,name:str=None):
+        if not name:
+            self.subscription = self.globalConfig.get_default_subscription()
+        else:
+            self.subscription = self.globalConfig.subscriptionConfig.get_subscription(name)
+        if not self.subscription:
+            return False
+        for index, proxy in enumerate(self.subscription.files):
+            button = QPushButton(self.ui.proxyPage)
+            button.setObjectName(proxy['name'])
+            size = self.ui.stackedWidget.geometry()
+            button.setText(QCoreApplication.translate("Widget", proxy['name'], None))
+            button.setGeometry(QRect(10, 10+index*85, int(size.width()/3), 100))
+        return True
+        
+    def setupSubscriptionPage(self):
+        for index, subscription in enumerate(self.subscription_list):
+            button = QPushButton(self.ui.subscriptionPage)
+            button.setObjectName(subscription.name)
+            size = self.ui.stackedWidget.geometry()
+            button.setText(QCoreApplication.translate("Widget", subscription.name, None))
+            button.setGeometry(QRect(10, 10+index*85, int(size.width()/3), 100))
+        
 
     def closeEvent(self, event:QCloseEvent):
         # 重写closeEvent事件处理函数

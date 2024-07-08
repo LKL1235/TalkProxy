@@ -25,7 +25,7 @@ class Test(unittest.TestCase):
         import time
         bin_path = os.path.join(os.path.dirname(__file__),'hysteria-windows-amd64-avx.exe')
 
-        from talkProxy.core.hysteria import Hysteria
+        from talkProxy.core.hysteria2 import Hysteria
         from talkProxy.log.Logger import subProcessLogHandler
         # 示例命令
         def config1():

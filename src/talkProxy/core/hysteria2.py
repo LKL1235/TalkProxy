@@ -5,7 +5,7 @@ from typing import IO
 import logging
 from talkProxy.log.Logger import subProcessLogHandler
 
-class Hysteria(threading.Thread):
+class Hysteria2(threading.Thread):
     _instance = None
     _lock = threading.Lock()
     

@@ -28,13 +28,13 @@
      <height>75</height>
     </size>
    </property>
-   <widget class="QWidget" name="page_0"/>
-   <widget class="QWidget" name="page_2"/>
-   <widget class="QWidget" name="page_3"/>
-   <widget class="QWidget" name="page_4"/>
-   <widget class="QWidget" name="page_5"/>
-   <widget class="QWidget" name="page_6"/>
-   <widget class="QWidget" name="page_1"/>
+   <widget class="QWidget" name="proxyPage"/>
+   <widget class="QWidget" name="connectionPage"/>
+   <widget class="QWidget" name="rulePage"/>
+   <widget class="QWidget" name="logPage"/>
+   <widget class="QWidget" name="testPage"/>
+   <widget class="QWidget" name="settingPage"/>
+   <widget class="QWidget" name="subscriptionPage"/>
   </widget>
   <widget class="QWidget" name="verticalLayoutWidget">
    <property name="geometry">
